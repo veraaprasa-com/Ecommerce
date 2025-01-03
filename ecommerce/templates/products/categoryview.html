@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for product in product_items %}
+    <!-- <img src="{{i.image1.url}}" height="200px" width="150px" alt="">
+    <h3>{{i.product_id.brand_id}}</h3>
+    <h3>{{i.product_id.product_name}}</h3>
+    <h3>{{i.original_price}}</h3>
+    <h3>{{i.sale_price}}</h3> -->
+    <div>
+        <a href="{% url 'category' product.slug %}"><img src="{{product.image1.url}}" height="200px" width="200px" alt="">
+        <br>
+        <p>
+            {{product.product.product_name}} <br></a>
+            {{product.color.color_name}} <br>
+        </p>
+    </div>
+    {% endfor %}
+</body>
+</html>

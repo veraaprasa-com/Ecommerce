@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+nav{
+    background-color: blueviolet;
+    display: flex;
+    width: 100%;
+    height: 70px;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1;
+    color: white;
+    padding: 0 10px;
+}
+nav ul{
+    display: flex;
+}
+nav ul li a{
+    text-decoration: none;
+    margin-right: 30px;
+    padding: 10px 20px;
+    color: white;
+}

@@ -1,0 +1,23 @@
+{% extends  "base.html" %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/logins.css' %}">
+    <div class="container">
+        <h1>Login </h1>
+        {% for message in messages %}
+        <div class="alert alert-{{message.tags}}" role="alert">
+            {{message}} 
+          </div>
+        {% endfor %}
+        {% load crispy_forms_tags %}
+            <form action="" method="post">
+                {% csrf_token %}
+                {{form|crispy}}
+                <input type="submit" value="Login" style="background-color: green;">
+                <span>Don't Have an account </span><a href="{% url 'register' %}" style="color: blue;">signup</a> <br><br>
+                <p><a href="{% url 'password_reset' %}" style="color: rgb(5, 30, 255);">Forgot Password?</a></p>
+                <p><a href="" style="color: rgb(5, 30, 255);">Update Password</a></p></span>
+            </form>
+    </div>
+{% endblock %}
