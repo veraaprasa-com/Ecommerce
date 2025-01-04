@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main-container{
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+    background-color: white;
+    margin: 10px;
+}
+.sub-container{
+    position: relative;
+    width: 100px;
+    height: 140px;
+}
+.sub-container img{
+    position: absolute;
+    width: 100%;
+}
+.sub-container p{
+    margin-top: 90px;
+    text-align: center;
+}
+body{
+    background-color: rgb(192, 189, 189);
+}

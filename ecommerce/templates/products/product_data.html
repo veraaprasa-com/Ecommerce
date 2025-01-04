@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+
 {% block productdata %}
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{% static 'css/product_item_data.css' %}">
+    <link rel="stylesheet" href="{% static 'css/product_data.css' %}">
     <!-- <link rel="stylesheet" href="{static 'css/bootstrap.min.css'}"> -->
 </head>
 <body>
@@ -18,7 +18,7 @@
             <a href="{% url 'singleproductitem' i.slug %}">
               <img src="{{i.image1.url}}" height="200px" width="200px" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <a href="{% url 'singleproductitem' i.slug %}">{{i.product_id.product_name}}</a>
+                  <a href="{% url 'singleproductitem' i.slug %}">{{i.product.product_name}}</a>
                   <p >Original Price :{{i.original_price}}</p>
                   <p >Original Price :{{i.sale_price}}</p>
                 </div>

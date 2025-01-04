@@ -1,20 +1,22 @@
+{% block homeview %}
 <!DOCTYPE html>
 <html lang="en">
+    {% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/homeviews.css' %}">
 </head>
 <body>
-    {% for category in categories %}
-    <a href="{% url 'category' category.slug %}">
-        <!-- <img src="{{category.category_image.url}}" height="300px",width="300px"> -->
-        <br>
-        {{category.category_name}}
-        </a>
-        <br>
-        <br>
-    {% endfor %}
-    </a>
+    <div class="main-container">
+        {% for category in categories %}
+            <div class="sub-container">
+                <a href="{% url 'category' category.slug %}"><img src="{{category.category_image.url}}" height="100px",width="100px"></a>
+                <br><p>{{category.category_name}}</p>
+            </div>
+        {% endfor %}
+   </div>
 </body>
 </html>
+{% endblock %}

@@ -120,45 +120,15 @@ def CategoryView(request,slug):
     return HttpResponse('invalid category')
 
 def HomeView(request):
-    categories=product_category.objects.filter(category_name__in=['Formal Shirts''Tshirt','Casual Shirts'])
+    categories=product_category.objects.filter(category_name__in=['Formal Shirts','Tshirt','Casual Shirts'])
     context={
         'categories':categories
     }
     return render(request,'homeview.html',context)
 
-         
-# def Category(request):
-#     qs=product_category.objects.all()
-#     context={
-#         'category':qs
-#     }
-#     return render(request,'products/category.html',context)
-
-
-# def IdentifyUserView(request):
-#     fm=IdentifyForm()
-#     context={
-#         'form':fm,
-#     }
-#     if request.method =='POST':
-#         fm=IdentifyForm(request.POST)
-#         if fm.is_valid():
-#             username=fm.cleaned_data['username']
-#             if UserModels.objects.filter(username=username).exists():
-#                 url='/resetpassword'+username+'/'
-#                 return redirect(url)
-#             HttpResponse('user cannot identify')
-#     return render(request,'identify.html',context)
-
-# def ResetPasswordView(request,username):
-#     obj = User.objects.get(username=username)
-#     fm = SetPasswordForm(obj)
-#     context = {
-#         'form': fm
-#     }
-#     if request.method == 'POST':
-#         fm = SetPasswordForm(obj, data=request.POST)
-#         if fm.is_valid():
-#             fm.save()
-#             return redirect('signin')
-#     return render(request, 'resetpwd.html', context)
+def CartDisplay(request):
+    items=OrderItemModel.objects.all()
+    context={
+        'items':items
+    }
+    return render(request,'cartdisplay.html',context)

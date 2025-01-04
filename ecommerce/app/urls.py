@@ -15,11 +15,10 @@ urlpatterns=[
     path('updatepassword/<str:username>/',views.UpdatePassword,name="updatepassword"),
     
     path('productdata/',views.ProductDataView,name="productdata"),
-    # path('identify/',views.IdentifyUserView,name="identify"),
-    # path('resetpassword/<str:username>/',views.ResetPasswordView,name="resetpassword"),
-
     path('singleproductitem/<str:slug>/',views.SingelProductItem,name="singleproductitem"),
     path('category/<slug>/',views.CategoryView,name="category"),
-    path('home/',views.HomeView,name='home'),
+    path('homeview/',views.HomeView,name='homeview'),
+    path('cartdisplay/',views.CartDisplay,name="cartdisplay"),
+    
 
 ]

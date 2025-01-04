@@ -17,7 +17,7 @@ class size_option(models.Model):
     
 class product_category(models.Model):
     category_name=models.CharField(max_length=100)
-    category_image=models.TextField(max_length=100)
+    category_image=models.ImageField(upload_to='product_category/',blank=True,null=True)
     category_description=models.TextField(max_length=1000)
     slug=models.CharField(max_length=100,null=True,blank=True)
     parent_category=models.ForeignKey('product_category',on_delete=models.CASCADE,null=True,blank=True)
@@ -65,9 +65,9 @@ class product_item(models.Model):
     image3=models.ImageField(upload_to='product_image/',blank=True,null=True)
     image4=models.ImageField(upload_to='product_image/',blank=True,null=True)
     def __str__(self):
-        return str(self.product_id)
+        return str(self.product)
     def save(self,*args,**kwargs):
-        self.slug=str(self.product_id.product_category_id)+'-'+str(self.product_id)+'-'+str(self.colour_id).replace('','-')
+        self.slug=str(self.product.product_category)+'-'+str(self.product)+'-'+str(self.colour).replace('','-')
         super().save(*args,**kwargs)
     
 class product_variation(models.Model):

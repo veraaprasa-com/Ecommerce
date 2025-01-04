@@ -1,0 +1,48 @@
+.container{
+    margin: 20px;
+    border: 3px solid gainsboro;
+    position: relative;
+    width: 180px;
+    height: 340px;
+    background-color: white;
+}
+body{
+    background-color: rgb(189, 186, 186);
+}
+.main-container{
+    border: 1px solid rgb(167, 13, 13);
+    display: flex; 
+    justify-content: center;
+    row-gap: 10px;
+    flex-wrap: wrap;   
+}
+.card img{
+    width: 100%;
+    position: absolute;
+}
+.card-body{
+    margin-top: 220px;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    & span{
+        color: goldenrod;
+        font-size: 17px;
+    }
+}
+.card-body a{
+    font-size: 14px;
+    text-decoration: none;
+    color: rgb(4, 184, 4);
+}
+.card-body p{
+    padding: 0;
+    font-size: 12px;
+}
+.card-body a button{
+    padding: 7px 30px;
+    background-color: rgb(0, 170, 71);
+    border:none;
+    border-radius: 0.3em;
+    color: white;
+}

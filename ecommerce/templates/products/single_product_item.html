@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+    {% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/single_product_items.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
 </head>
 <body>
-    <img src="{{product.image1.url}}" height="200px" width="100px" alt="">
-    <h3>{{product.product_id}}</h3>
-    <h3>Original price:{{product.original_price}}</h3>
-    <h3>Sale Price :{{product.sale_price}}</h3>
+    <div class="main-container">
+        <div class="imgage">
+            <img src="{{product.image1.url}}"  alt="">
+        </div>
+        <div class="content">
+            <h2>{{product.product}}</h2><hr>
+            <h3><span id="sale-price">₹{{product.sale_price}}</span> <strike>₹{{product.original_price}}</strike> </h3>
+            
+            <h3>Description :</h3> <hr> <p>{{product.product.product_description}}</p>
+            <div class="btns">
+                <a href=""><button id="buy">Buy Now <i class="fa-solid fa-bag-shopping" style="color: #ffffff;"></i></button></a>
+                <a href=""><button id="add">Add to Cart <i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></button></a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
