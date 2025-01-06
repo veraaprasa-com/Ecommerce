@@ -1,28 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-    {% load static %}
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'css/single_product_items.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-</head>
-<body>
+{% extends 'home.html' %}
+{% block product_data %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/single_product_item.css' %}">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+<div class="containers">
     <div class="main-container">
         <div class="imgage">
-            <img src="{{product.image1.url}}"  alt="">
+            <img src="{{product.image1.url}}" alt="">
         </div>
         <div class="content">
-            <h2>{{product.product}}</h2><hr>
+            <h4>{{product.product}}</h4>
+            <hr>
             <h3><span id="sale-price">₹{{product.sale_price}}</span> <strike>₹{{product.original_price}}</strike> </h3>
-            
-            <h3>Description :</h3> <hr> <p>{{product.product.product_description}}</p>
+
+            <h6>Description :</h6>
+            <hr>
+            <p>{{product.product.product_description}}</p>
             <div class="btns">
-                <a href=""><button id="buy">Buy Now <i class="fa-solid fa-bag-shopping" style="color: #ffffff;"></i></button></a>
-                <a href=""><button id="add">Add to Cart <i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i></button></a>
+                <a href=""><button id="buy">Buy Now <i class="fa-solid fa-bag-shopping"
+                            style="color: #ffffff;"></i></button></a>
+                <a href=""><button id="add">Add to Cart <i class="fa-solid fa-cart-shopping"
+                            style="color: #ffffff;"></i></button></a>
             </div>
         </div>
     </div>
-</body>
-</html>
+</div>
+{% endblock %}

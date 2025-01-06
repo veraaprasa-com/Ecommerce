@@ -14,7 +14,7 @@ from django.contrib.auth.forms import UserCreationForm
 class UserForm(UserCreationForm):
     class Meta:
         model=UserModels
-        fields=['Fullname','phone','email']
+        fields=['Fullname','username','phone','email']
        
 
 # class IdentifyForm(forms.ModelForm):

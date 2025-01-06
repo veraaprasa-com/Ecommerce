@@ -1,0 +1,13 @@
+{% extends 'home.html' %}
+{% block categories %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/categorie.css' %}">
+    <div class="main-container">
+        {% for category in categories %}
+            <div class="sub-container"> 
+                <a href="{% url 'category' category.slug %}"><img src="{{category.category_image.url}}" height="100px",width="100px"></a>
+                <br><p>{{category.category_name}}</p>
+                
+            </div>
+    {% endfor %}
+{% endblock %}

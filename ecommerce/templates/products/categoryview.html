@@ -1,5 +1,5 @@
-
-{% block productdata %}
+{% extends 'home.html' %}
+{% block product_data %}
 <!DOCTYPE html>
 <html lang="en">
     {% load static %}
@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{% static 'css/productdata.css' %}">
+    <link rel="stylesheet" href="{% static 'css/product_datas.css' %}">
     <!-- <link rel="stylesheet" href="{static 'css/bootstrap.min.css'}"> -->
 </head>
 <body>
@@ -15,13 +15,14 @@
     {% for product in product_items %}
     <div class="container">
           <div class="card" >
-                <a href="{% url 'singleproductitem' product.slug  %}"><img src="{{product.image1.url}}" height="200px" width="200px" alt="">
+                <a href="{% url 'singleproductitem' product.slug  %}"><img src="{{product.image1.url}}" height="200px" width="200px" alt=""></a>
                 <div class="card-body">
+                  <a href="">{{product.product.brand_id}}</a><br>
                   <a href="{% url 'singleproductitem' product.slug  %}">{{product.product.product_name}}</a>
                   <p ><span>₹{{product.sale_price}}       </span> <strike>₹{{product.original_price}}</strike></p>
                    <a href="{% url 'singleproductitem' product.slug  %}"><button>View</button></a>
                 </div>
-            </a>
+            
           </div>
     </div>
     {% endfor %}

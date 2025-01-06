@@ -8,11 +8,12 @@
     gap: 20px;
     padding: 10px;
     background-color: white;
-    margin: 10px;
+    position: relative;
+    top: 50px;
 }
 .sub-container{
     position: relative;
-    width: 100px;
+    width: 80px;
     height: 140px;
 }
 .sub-container img{
@@ -22,6 +23,7 @@
 .sub-container p{
     margin-top: 90px;
     text-align: center;
+    font-size: 12px;
 }
 body{
     background-color: rgb(192, 189, 189);

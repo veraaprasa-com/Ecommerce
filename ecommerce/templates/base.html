@@ -4,31 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecommerce</title>
+    <title>Document</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
-    
+   
 </head>
 <body>
-    <div class="header">
-   {% include 'partial/header2.html' %}
+   {% include 'partial/header.html' %}
    {% block header %}
    {% endblock %}
-    </div>
-  <div class="body">
-   {% block categories %}
-   {% endblock %}
-
-  
-
-   {% block product_data %}
-   {% endblock %}
-    </div>
-
-
    
-</div>
+   {% block content %}{% endblock %}
 </body>
 </html>
-  

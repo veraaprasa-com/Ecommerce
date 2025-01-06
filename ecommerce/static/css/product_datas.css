@@ -1,8 +1,8 @@
 .container{
-    margin: 20px;
+    margin: 10px;
     border: 3px solid gainsboro;
     position: relative;
-    width: 180px;
+    width: 200px;
     height: 340px;
     background-color: white;
 }
@@ -14,17 +14,23 @@ body{
     display: flex; 
     justify-content: center;
     row-gap: 10px;
-    flex-wrap: wrap;   
+    flex-wrap: wrap;  
+    position: relative;
+    top: 50px; 
 }
 .card img{
     width: 100%;
     position: absolute;
 }
 .card-body{
-    margin-top: 220px;
+    margin-top: 190px;
     width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     position: absolute;
     text-align: center;
+    line-height: 1.1em;
     & span{
         color: goldenrod;
         font-size: 17px;
@@ -32,6 +38,9 @@ body{
 }
 .card-body a{
     font-size: 14px;
+    overflow: hidden;
+    width: 200px;
+    
     text-decoration: none;
     color: rgb(4, 184, 4);
 }

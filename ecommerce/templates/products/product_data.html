@@ -1,32 +1,29 @@
-
-{% block productdata %}
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'home.html' %}
+{% block product_data %}
     {% load static %}
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'css/product_data.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/product_datas.css' %}">
     <!-- <link rel="stylesheet" href="{static 'css/bootstrap.min.css'}"> -->
-</head>
-<body>
+
   <div class="main-container">
     {% for i in productdata %}
     <div class="container">
           <div class="card" >
             <a href="{% url 'singleproductitem' i.slug %}">
               <img src="{{i.image1.url}}" height="200px" width="200px" class="card-img-top" alt="...">
+               
                 <div class="card-body">
+
+                  <a href="">{{i.product.brand_id}}</a><br>
                   <a href="{% url 'singleproductitem' i.slug %}">{{i.product.product_name}}</a>
-                  <p >Original Price :{{i.original_price}}</p>
-                  <p >Original Price :{{i.sale_price}}</p>
+                  <p ><span>₹{{i.sale_price}}       </span> <strike>₹{{i.original_price}}</strike></p>
+                   <a href="{% url 'singleproductitem' i.slug %}"><button>View</button></a>
                 </div>
+            
             </a>
           </div>
     </div>
     {% endfor %}
   </div>
-</body>
-</html>
+
 {% endblock %}

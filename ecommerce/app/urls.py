@@ -2,9 +2,10 @@ from django.urls import path
 from . import views
 from django.contrib.auth import views as auth_views
 urlpatterns=[
+    path('index/',views.index,name="index"),
     path('register/',views.RegisrerView,name="register"),
     path('login/',views.LoginView,name="login"),
-    path('home/',views.HomeView,name="home"),
+    path('homepage/',views.Homepage,name="homepage"),
     path('loguot/',views.Logout_view,name="logout"),
     path('message/',views.Message_View,name="message"),
     
@@ -17,7 +18,7 @@ urlpatterns=[
     path('productdata/',views.ProductDataView,name="productdata"),
     path('singleproductitem/<str:slug>/',views.SingelProductItem,name="singleproductitem"),
     path('category/<slug>/',views.CategoryView,name="category"),
-    path('homeview/',views.HomeView,name='homeview'),
+    path('categories/',views.Categories,name='categories'),
     path('cartdisplay/',views.CartDisplay,name="cartdisplay"),
     
 

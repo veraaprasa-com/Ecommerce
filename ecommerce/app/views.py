@@ -60,7 +60,7 @@ def LoginView(request):
                 if user.is_authenticated:
                     login(request,user)
                     messages.success(request,'user loggedin successfull')
-                    return redirect('home')
+                    return redirect('homepage')
                 messages.error(request,'invalid username or password')
             return redirect('login')
     return render(request,'login.html',context)
@@ -73,7 +73,7 @@ def Logout_view(request):
 def Message_View(request):
     return render(request,'message.html')
 @login_required
-def HomeView(request):
+def Homepage(request):
     return render(request,'home.html')
 
 def UpdatePassword(request,username):
@@ -119,12 +119,12 @@ def CategoryView(request,slug):
         return render(request,'products/categoryview.html',context)
     return HttpResponse('invalid category')
 
-def HomeView(request):
+def Categories(request):
     categories=product_category.objects.filter(category_name__in=['Formal Shirts','Tshirt','Casual Shirts'])
     context={
         'categories':categories
     }
-    return render(request,'homeview.html',context)
+    return render(request,'categories.html',context)
 
 def CartDisplay(request):
     items=OrderItemModel.objects.all()
@@ -132,3 +132,5 @@ def CartDisplay(request):
         'items':items
     }
     return render(request,'cartdisplay.html',context)
+def index(request):
+    return render(request,'index.html')
