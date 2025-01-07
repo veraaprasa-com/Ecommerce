@@ -31,6 +31,11 @@
     border-radius: 0.5em;
     font-size: large;
     color:white;
+    transition: 0.3s ease;
+}
+.content .btns button:hover{
+    border: 1px solid orangered;
+    background-color: white;
 }
 .content .btns{
     margin-top: 20px;
@@ -40,8 +45,16 @@
 #buy{
     background-color: rgb(190, 187, 2);
 }
+#buy:hover{
+    background-color: whitesmoke;
+    color: rgb(180, 180, 6);
+}
 #add{
     background-color: rgb(243, 132, 6);
+}
+#add:hover{
+    background-color: whitesmoke;
+    color: orangered;
 }
 hr{
    margin: 5px 0;
