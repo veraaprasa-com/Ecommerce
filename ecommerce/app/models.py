@@ -12,8 +12,12 @@ class size_option(models.Model):
     size_name=models.CharField(max_length=100)
     sort_order=models.CharField(max_length=100)
     size_category_id=models.ForeignKey(size_category,on_delete=models.CASCADE)
+    slug=models.CharField(max_length=100,null=True,blank=True)
     def __str__(self):
         return self.size_name
+    def save(self,*args,**kwargs):
+        self.slug=(str(self.size_category_id)+' '+self.size_name).replace(' ','-')
+        super().save(*args,**kwargs)
     
 class product_category(models.Model):
     category_name=models.CharField(max_length=100)
@@ -24,7 +28,7 @@ class product_category(models.Model):
     def __str__(self):
         return self.category_name
     def save(self,*args,**kwargs):
-        self.slug=str(self.category_name).replace('','-')
+        self.slug=str(self.category_name).replace(' ','-')
         super().save(*args,**kwargs)
     
 class brand(models.Model):
@@ -57,6 +61,7 @@ class product_item(models.Model):
     colour=models.ForeignKey(colour,on_delete=models.CASCADE)
     original_price=models.IntegerField()
     size_category=models.ForeignKey(size_category,on_delete=models.SET_NULL,null=True,blank=True)
+    sizeoption=models.ForeignKey(size_option,on_delete=models.SET_NULL,null=True,blank=True)
     sale_price=models.IntegerField()
     slug=models.CharField(max_length=100,null=True,blank=True)
     product_code =models.CharField(max_length=100,null=True,blank=True)
@@ -99,7 +104,7 @@ class OrderItemModel(models.Model):
     ordered=models.BooleanField(default=False)
     product_item=models.ForeignKey(product_item,on_delete=models.CASCADE)
     quantity=models.IntegerField(default=1)
-    size=models.ForeignKey(size_option,on_delete=models.CASCADE)
+    size=models.ForeignKey(size_option,on_delete=models.CASCADE,null=True,blank=True)
     def __str__(self):
         return str(self.user)
 

@@ -120,17 +120,28 @@ def CategoryView(request,slug):
     return HttpResponse('invalid category')
 
 def Categories(request):
-    categories=product_category.objects.filter(category_name__in=['Formal Shirts','Tshirt','Casual Shirts'])
+    categories=product_category.objects.filter(category_name__in=['Formal Shirts','Tshirt','Casual Shirts','Shorts'])
     context={
         'categories':categories
     }
     return render(request,'categories.html',context)
 
-def CartDisplay(request):
-    items=OrderItemModel.objects.all()
-    context={
-        'items':items
-    }
-    return render(request,'cartdisplay.html',context)
 def index(request):
     return render(request,'index.html')
+
+@login_required(login_url='login/')
+def add_to_cartView(request,productitemslug,sizeslug):
+    username=request.user
+    user=UserModels.objects.get(username=username)
+    productitem=product_item.objects.get(slug=productitemslug)
+    sizeoption=size_option.objects.get(slug=sizeslug)
+    OrderItemModel.objects.create(user=user,product_item=productitem,size=sizeoption)
+    return HttpResponse('added to cart Successfully')
+    
+# def display_cartview(request,username):
+#     user=OrderItemModel.objects.get(user=username)
+#     context={
+#         'user':user
+#     }
+#     return render(request,'products/viewcart.html',context)
+

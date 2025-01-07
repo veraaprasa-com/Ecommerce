@@ -19,7 +19,7 @@ urlpatterns=[
     path('singleproductitem/<str:slug>/',views.SingelProductItem,name="singleproductitem"),
     path('category/<slug>/',views.CategoryView,name="category"),
     path('categories/',views.Categories,name='categories'),
-    path('cartdisplay/',views.CartDisplay,name="cartdisplay"),
+    path('addtocart/<productitemslug>/<sizeslug>/',views.add_to_cartView,name="addtocart"),
+    # path('viewcart/<username>/',views.display_cartview,name="viewcart"),
     
-
 ]

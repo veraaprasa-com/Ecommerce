@@ -19,11 +19,14 @@
             <h6>Description :</h6>
             <hr>
             <p>{{product.product.product_description}}</p>
+            {{product.slug}} <br>
+            {{product.sizeoption.slug}}
             <div class="btns">
                 <a href=""><button id="buy">Buy Now <i class="fa-solid fa-bag-shopping"
                             style="color: #ffffff;"></i></button></a>
-                <a href=""><button id="add">Add to Cart <i class="fa-solid fa-cart-shopping"
+                <a href="{% url 'addtocart' product.slug product.sizeoption.slug %}"><button id="add">Add to Cart <i class="fa-solid fa-cart-shopping"
                             style="color: #ffffff;"></i></button></a>
+                            
             </div>
         </div>
     </div>

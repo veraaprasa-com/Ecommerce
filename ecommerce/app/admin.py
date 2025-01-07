@@ -8,7 +8,7 @@ class size_categoryAdmin(admin.ModelAdmin):
 
 @admin.register(size_option)
 class size_optionAdmin(admin.ModelAdmin):
-    list_display=['id','size_name','sort_order','size_category_id']
+    list_display=['id','size_name','sort_order','size_category_id','slug']
 
 @admin.register(product_category)
 class product_category(admin.ModelAdmin):
@@ -28,7 +28,7 @@ class colourAdmin(admin.ModelAdmin):
 
 @admin.register(product_item)
 class product_itemAdmin(admin.ModelAdmin):
-    list_display=['id','product','colour','original_price','sale_price','product_code','slug']
+    list_display=['id','product','colour','original_price','size_category','sale_price','sizeoption','slug']
 
 @admin.register(product_variation)
 class product_variation(admin.ModelAdmin):
@@ -57,6 +57,3 @@ class PaymentModelAdmin(admin.ModelAdmin):
 class OrderModelAdmin(admin.ModelAdmin):
     list_display=['user','reference_code','items','startdate','ordered_date','ordered','shipping_adrs',
                   'payment','being_delivered','received','refund_requested','refund_granted']
-    
-    
-
